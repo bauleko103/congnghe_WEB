@@ -20,7 +20,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 12px;
   font-weight: 200;
   color: white;
@@ -33,11 +33,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto';
+  font-family: "Roboto";
   font-size: 12px;
   font-weight: 200;
   color: white;
-  
 }
 
 .App-header-projects {
@@ -60,8 +59,6 @@
     transform: rotate(360deg);
   }
 }
-
-
 
 .each-slide {
   display: flex;
@@ -90,35 +87,88 @@
 
 /* -------------PROJECT CARD------------- */
 
-.about-picture{
+.about-picture {
   position: relative;
   margin: 9px 0;
 }
 
-.about-picture img{
+.about-picture img {
   width: 345px;
   height: 220px;
 }
 
-.picture-tittle{
+.picture-tittle {
   position: absolute;
   left: 55%;
   top: 45%;
   color: #c2e1fd;
   transform: translate(-65%, 100%);
   opacity: 0;
-  transition: all .7s;
+  transition: all 0.7s;
   text-decoration: none;
-
 }
 
 .about-picture:hover .picture-tittle,
-.about-picture:active .picture-tittle{
+.about-picture:active .picture-tittle {
   transform: translate(-65%, -50%);
   opacity: 1;
 }
 
 .about-picture:hover img,
-.about-picture:active img{
+.about-picture:active img {
   filter: brightness(35%);
+}
+/* -------------Contact------------- */
+.contact-container {
+  padding-top: 30px;
+  text-align: center;
+}
+.contact-content {
+  max-width: 350px;
+  margin: 15px auto;
+}
+.checkbox {
+  margin-right: 10px;
+}
+button.btn.btn-outline-secondary {
+  margin-top: 15px;
+}
+.col-12.form-group {
+  margin: 15px auto;
+}
+.form-check-label {
+  font-weight: bold;
+}
+.information-address {
+  margin-top: 50px;
+}
+.address {
+  padding-bottom: 20px;
+}
+.address-district {
+  color: black;
+  text-decoration: none;
+  outline: none;
+}
+.address-city {
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  outline: none;
+}
+.mail {
+  text-decoration: none;
+  outline: none;
+  color: black;
+}
+.contact-name {
+  color: #999999;
+}
+.contact-mail {
+  margin-bottom: 15px;
+}
+.map {
+  border: 0;
+  margin: 50px auto;
+  background-position: center;
 }

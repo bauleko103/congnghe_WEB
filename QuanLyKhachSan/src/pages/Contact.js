@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/Contact.scss";
+import "../App.css";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import Iframe from "react-iframe";
 export const Contact = () => {
