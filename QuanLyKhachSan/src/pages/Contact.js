@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 import React from "react";
 import "../css/Contact.scss";
 import { BrowserRouter as Router, Link } from "react-router-dom";
@@ -120,4 +119,4 @@ export const Contact = () => {
     </>
   );
 };
->>>>>>> main
+
