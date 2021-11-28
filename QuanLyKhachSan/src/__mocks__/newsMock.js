@@ -39,7 +39,7 @@ export default [
   {
     id: uuid(),
     url: '/',
-    image: 'https://lh3.googleusercontent.com/proxy/xAMH_5G5XQtxwSLK4BkbaA4VMBm5rra-V3Dc-eZ9PT16L9J_7xeTDnykXfj_vVjo7rkBVOmJ1I125lxOaw',
+    image: 'https://d2ile4x3f22snf.cloudfront.net/wp-content/uploads/sites/174/2017/08/10060639/Deluxe-3092-700x490.jpg',
     title: 'Squarespace',
     description: 'The idea of this new project in Tarifa arises from the close vision of the environment. A longitudinal volume that is deposited on a platform materialized as a terrace and pool, merging with the sea.'
   }
