@@ -2,78 +2,34 @@
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid';
-import SlideMenu from '../components/slide/SlideMenu';
+import HomeSlide from '../components/home/HomeSlide';
+import { FooterW } from '../components/Layouts/FooterW';
 
 const StyleBoxHome = styled(Box)({
-  padding: '1.5em',
-  // backgroundColor: '#cfe8fc',
-  height: '100vh',
-  
+  // padding: '20px 200px',
+  width: '900px',
+  margin: '0 auto',
+  backgroundColor: 'white',
+  height: 'auto',
   justifyContent: 'space-around',
   flexWrap: 'wrap',
   alignContent: 'flex-start',
-  flexDirection: 'colurmn'
+  flexDirection: 'colurmn',
+  position: 'relative',
+  zIndex: '100'
 });
 
 
-export const Home = () => {
-    return (
-      <>
-      <StyleBoxHome>
-      <Item > <SlideMenu/></Item>
-      <Item > <SlideMenu/></Item>
-      
-      <Item > <AutoGrid/></Item>
+const Home = () => {
+  return (
+    <>
+      <StyleBoxHome >
+        <HomeSlide />
+        <FooterW />
       </StyleBoxHome>
-     
-      
-      </>
-      
-       
-          
-       
-    )
+
+    </>
+  )
 };
 
-
-
-
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-  boxShadow: "none",
-  textTransform: "none",
-  marginTop:"1rem",
- 
-  alignItems: "center",
-  marginLeft: "15rem",
-  marginRight: "15rem",
-}));
-
-
-export function AutoGrid() {
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={3}>
-        <Grid item xs>
-            <p>baule</p>
-        </Grid>
-        <Grid item xs>
-            <p>baule</p>
-        </Grid>
-        <Grid item xs>
-            <p>baule</p>
-        </Grid>
-        <Grid item xs>
-            <p>baule</p>
-        </Grid>
-      </Grid>
-    </Box>
-  );
-}
-
-
+export default Home;
