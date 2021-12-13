@@ -3,59 +3,51 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { styled } from "@mui/material/styles";
-import { Button, Link } from '@mui/material';
+import { Link } from '@mui/material';
 import PropTypes from 'prop-types';
+import { Typography } from '@mui/material';
 
-
-const StyleCard = styled(Card)({
-  marginTop: 8,
-  marginBottom: 8,
-  borderRadius: 0,
-  boxShadow: 'none'
-});
-
-const StyleCardContent = styled(CardContent)({
-  padding: '0'
-});
-
-const StyleCardActions = styled(CardActions)({
-  padding: '10px 0'
-});
-
-const StyleLink = styled(Link)({
-  color: 'black',
-  textDecoration: 'none',
-  fontWeight: '700'
-});
-
-const StyleTypography = styled(Typography)({
-  fontsize: '11px'
-});
 
 export default function NewsCard({ news }) {
   return (
-    <StyleCard sx={{ maxWidth: 345 }}>
-      <CardMedia
-        component="img"
-        height="200"
-        image={news.image}
-        alt="green iguana"
-      />
-      <StyleCardContent>
-        <StyleCardActions>
-          <StyleLink href={news.url}>{news.title}</StyleLink>
-        </StyleCardActions>
-        <StyleTypography variant="body2" color="text.secondary">
-          {news.description}
-        </StyleTypography>
-        {/* <Button type="submit">Book</Button> */}
-      </StyleCardContent>
-    </StyleCard>
+    <Card sx={{
+      maxWidth: 275,
+      height: 240,
+      margin: '6.5px',
+      borderRadius: 0,
+      boxShadow: 'none',
+    }}>
+      <Link href={`/news/${news.slug}`}>
+        <CardMedia sx={{
+          height: 175,
+          width: 275,
+        }}
+          component="img"
+          alt={news.title}
+
+          image={`${process.env.REACT_APP_IMAGE_URL}/${news.image}`}
+        />
+      </Link>
+      <CardContent sx={{ padding: "0" }}>
+        <CardActions sx={{ padding: "0" }}>
+          <Link href="/news/${news.slug}" sx={{
+            color: '#000000',
+            textDecoration: 'none',
+            fontWeight: '300',
+            fontSize: '12px',
+            ":hover": {
+              color: '#6D6D6D'
+            }
+          }}>{news.title}</Link>
+        </CardActions>
+        <Typography variant="body2" color="text.secondary" sx={{ fontSize: '10px' }}>
+          <div className='description' dangerouslySetInnerHTML={{ __html: `${news.description}` }}></div>
+        </Typography>
+      </CardContent>
+    </Card>
   );
 }
 
 NewsCard.propTypes = {
-  news: PropTypes.array.isRequired
+  news: PropTypes.object.isRequired
 };

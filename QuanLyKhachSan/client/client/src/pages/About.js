@@ -1,31 +1,66 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import AboutCard from "../components/about/AboutCard";
-import aboutMock from "../__mocks__/aboutMock";
+import React, { useState, useEffect } from "react";
+import { styled } from '@mui/material/styles';
+import { Box } from "@mui/system";
+import AboutUs from "../components/about/AboutUs";
+import AboutTeam from "../components/about/AboutTeam";
+import AboutContact from "../components/about/AboutContact";
+import aboutApi from "../api/aboutApi";
+import LoadingScreen from "../components/LoandingScreen";
 
 const StyleBox = styled(Box)({
-  padding: "1.5em",
-  // backgroundColor: '#cfe8fc',
-  height: "100vh",
-  display: "flex",
-  justifyContent: "space-around",
-  flexWrap: "wrap",
-  alignContent: "flex-start",
-  flexDirection: "colurmn",
+    width: 900,
+    margin: '0 auto',
+    backgroundColor: 'white',
+    height: 'auto',
+    justifyContent: 'space-around',
+    flexWrap: 'wrap',
+    alignContent: 'flex-start',
+    flexDirection: 'colurmn',
+    position: 'relative',
+    zIndex: '100'
 });
 
-export default function About() {
-  return (
-    <React.Fragment>
-      <Container>
-        <StyleBox>
-          {aboutMock.map((about) => (
-            <AboutCard about={about} />
-          ))}
-        </StyleBox>
-      </Container>
-    </React.Fragment>
-  );
-}
+
+const About = () => {
+    const [about, setAbout] = useState(null);
+
+    useEffect(() => {
+        const fetchAbout = async () => {
+            try {
+                const response = await aboutApi.allAbout();
+                setAbout(response);
+            } catch (error) {
+                console.log('Failed to fetch about: ', error)
+            }
+        }
+        fetchAbout();
+    }, [])
+
+
+    return (
+        <>
+            {about && (
+                <StyleBox>
+                    <div id="about" className="about section-padding" data-scroll-index="1">
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-md-7">
+                                    <AboutUs about={about.text} />
+                                    <AboutTeam />
+                                </div>
+                                <div className="col-md-5">
+                                    <AboutContact />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </StyleBox >
+            )}
+            {!about && (<LoadingScreen />)}
+        </>
+
+    )
+};
+
+export default About;
